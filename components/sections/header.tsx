@@ -1,13 +1,16 @@
 'use client'
 import { TextEffect } from '@/components/ui/text-effect'
 import Link from 'next/link'
-import { HEADER_INFO } from './data'
+import { HEADER_INFO } from '@/lib/data'
 
 export function Header() {
   return (
     <header className="mb-8 flex items-center justify-between">
       <div>
-        <Link href="/" className="font-medium text-black dark:text-white">
+        <Link
+          href="/"
+          className="font-sans text-2xl font-medium text-black uppercase dark:text-white"
+        >
           {HEADER_INFO.name}
         </Link>
         <TextEffect
