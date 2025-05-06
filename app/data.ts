@@ -1,3 +1,9 @@
+type HeaderInfo = {
+  name: string
+  title: string
+  description: string
+}
+
 type Project = {
   name: string
   description: string
@@ -27,6 +33,12 @@ type SocialLink = {
   link: string
 }
 
+export const HEADER_INFO: HeaderInfo = {
+  name: 'Christopher Tarroja',
+  title: 'Front End Developer',
+  description: 'Front End Developer',
+}
+
 export const PROJECTS: Project[] = [
   {
     name: 'Motion Primitives Pro',
@@ -49,28 +61,36 @@ export const PROJECTS: Project[] = [
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
-    company: 'Reglazed Studio',
-    title: 'CEO',
-    start: '2024',
+    company: 'Sovrun (formerly BreederDAO)',
+    title: 'Front End Developer',
+    start: 'Dec 2023',
     end: 'Present',
-    link: 'https://ibelick.com',
+    link: 'https://sovrun.org',
     id: 'work1',
   },
   {
-    company: 'Freelance',
-    title: 'Design Engineer',
-    start: '2022',
-    end: '2024',
-    link: 'https://ibelick.com',
+    company: 'Getaka Labs',
+    title: 'Associate Software Engineer',
+    start: 'Mar 2022',
+    end: 'Jan 2024',
+    link: 'https://getakalabs.com',
     id: 'work2',
   },
   {
-    company: 'Freelance',
-    title: 'Front-end Developer',
-    start: '2017',
-    end: 'Present',
-    link: 'https://ibelick.com',
+    company: 'Capitol City Baptist Church',
+    title: 'Communications Specialist',
+    start: 'Nov 2014',
+    end: 'Mar 2022',
+    link: 'https://ccbc.ph',
     id: 'work3',
+  },
+  {
+    company: 'Freelance',
+    title: 'Web Developer',
+    start: '2016',
+    end: 'Present',
+    link: 'https://christarroja.github.io',
+    id: 'work4',
   },
 ]
 
@@ -100,20 +120,20 @@ export const BLOG_POSTS: BlogPost[] = [
 export const SOCIAL_LINKS: SocialLink[] = [
   {
     label: 'Github',
-    link: 'https://github.com/ibelick',
+    link: 'https://github.com/christarroja',
   },
-  {
-    label: 'Twitter',
-    link: 'https://twitter.com/ibelick',
-  },
+  // {
+  //   label: 'Twitter',
+  //   link: 'https://twitter.com/ibelick',
+  // },
   {
     label: 'LinkedIn',
-    link: 'https://www.linkedin.com/in/ibelick',
+    link: 'https://www.linkedin.com/in/chris-tarroja',
   },
-  {
-    label: 'Instagram',
-    link: 'https://www.instagram.com/ibelick',
-  },
+  // {
+  //   label: 'Instagram',
+  //   link: 'https://www.instagram.com/ibelick',
+  // },
 ]
 
-export const EMAIL = 'your@email.com'
+export const EMAIL = 'christarroja@gmail.com'
