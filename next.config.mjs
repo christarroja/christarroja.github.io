@@ -3,7 +3,7 @@ import createMDX from '@next/mdx';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '/nextjs-github-pages',
+  basePath: process.env.NODE_ENV === 'production' ? '/nextjs-github-pages' : '',
   images: {
     unoptimized: true,
   },
