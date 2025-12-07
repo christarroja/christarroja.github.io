@@ -1,37 +1,37 @@
-import type { Metadata, Viewport } from 'next'
-import { IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google'
-import './globals.css'
-import { Header } from '@/components/sections/header'
-import { Footer } from '@/components/sections/footer'
-import { ThemeProvider } from 'next-themes'
+import type { Metadata, Viewport } from "next";
+import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import "./globals.css";
+import { Header } from "@/components/sections/header";
+import { Footer } from "@/components/sections/footer";
+import { ThemeProvider } from "next-themes";
 
 export const viewport: Viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
-  themeColor: '#ffffff',
-}
+  themeColor: "#ffffff",
+};
 
 export const metadata: Metadata = {
-  title: 'Portfolio - Chris Tarroja',
-  description: 'Front End Developer, React (TypeScript) Specialist',
-}
+  title: "Portfolio - Chris Tarroja",
+  description: "Front End Developer, React (TypeScript) Specialist",
+};
 
 const ibmPlexSans = IBM_Plex_Sans({
-  variable: '--font-ibm-plex-sans',
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-})
+  variable: "--font-ibm-plex-sans",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 const ibmPlexMono = IBM_Plex_Mono({
-  variable: '--font-ibm-plex-mono',
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-})
+  variable: "--font-ibm-plex-mono",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -54,5 +54,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }

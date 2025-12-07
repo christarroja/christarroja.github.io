@@ -1,17 +1,17 @@
-'use client'
-import { motion } from 'motion/react'
-import { XIcon } from 'lucide-react'
-import { Spotlight } from '@/components/ui/spotlight'
-import { Magnetic } from '@/components/ui/magnetic'
+"use client";
+
+import { motion } from "motion/react";
+import { XIcon } from "lucide-react";
+import { Spotlight } from "@/components/ui/spotlight";
+import { Magnetic } from "@/components/ui/magnetic";
 import {
   MorphingDialog,
   MorphingDialogTrigger,
   MorphingDialogContent,
   MorphingDialogClose,
   MorphingDialogContainer,
-} from '@/components/ui/morphing-dialog'
-import Link from 'next/link'
-import { AnimatedBackground } from '@/components/ui/animated-background'
+} from "@/components/ui/morphing-dialog";
+
 import {
   PROJECTS,
   WORK_EXPERIENCE,
@@ -20,9 +20,9 @@ import {
   SOCIAL_LINKS,
   HEADER_INFO,
   SKILLS,
-} from '@/lib/data'
+} from "@/lib/data";
 
-const VARIANTS_CONTAINER = {
+export const VARIANTS_CONTAINER = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -30,26 +30,26 @@ const VARIANTS_CONTAINER = {
       staggerChildren: 0.15,
     },
   },
-}
+};
 
-const VARIANTS_SECTION = {
-  hidden: { opacity: 0, y: 20, filter: 'blur(8px)' },
-  visible: { opacity: 1, y: 0, filter: 'blur(0px)' },
-}
+export const VARIANTS_SECTION = {
+  hidden: { opacity: 0, y: 20, filter: "blur(8px)" },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+};
 
-const TRANSITION_SECTION = {
+export const TRANSITION_SECTION = {
   duration: 0.3,
-}
+};
 
 type ProjectVideoProps = {
-  src: string
-}
+  src: string;
+};
 
 function ProjectVideo({ src }: ProjectVideoProps) {
   return (
     <MorphingDialog
       transition={{
-        type: 'spring',
+        type: "spring",
         bounce: 0,
         duration: 0.3,
       }}
@@ -88,16 +88,10 @@ function ProjectVideo({ src }: ProjectVideoProps) {
         </MorphingDialogClose>
       </MorphingDialogContainer>
     </MorphingDialog>
-  )
+  );
 }
 
-function MagneticSocialLink({
-  children,
-  link,
-}: {
-  children: React.ReactNode
-  link: string
-}) {
+function MagneticSocialLink({ children, link }: { children: React.ReactNode; link: string }) {
   return (
     <Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>
       <a
@@ -122,7 +116,7 @@ function MagneticSocialLink({
         </svg>
       </a>
     </Magnetic>
-  )
+  );
 }
 
 export default function Personal() {
@@ -134,22 +128,14 @@ export default function Personal() {
       animate="visible"
     >
       {/* short description */}
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
+      <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
         <div className="flex-1">
-          <p className="font-mono text-zinc-600 dark:text-zinc-400">
-            {HEADER_INFO.description}
-          </p>
+          <p className="font-mono text-zinc-600 dark:text-zinc-400">{HEADER_INFO.description}</p>
         </div>
       </motion.section>
 
       {/* work experience */}
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
+      <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
         <h3 className="mb-5 text-lg font-medium">Work Experience</h3>
         <div className="flex flex-col space-y-2">
           {WORK_EXPERIENCE.map((job) => (
@@ -167,12 +153,8 @@ export default function Personal() {
               <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
                 <div className="relative flex w-full flex-row justify-between">
                   <div>
-                    <h4 className="font-normal dark:text-zinc-100">
-                      {job.title}
-                    </h4>
-                    <p className="text-zinc-500 dark:text-zinc-400">
-                      {job.company}
-                    </p>
+                    <h4 className="font-normal dark:text-zinc-100">{job.title}</h4>
+                    <p className="text-zinc-500 dark:text-zinc-400">{job.company}</p>
                   </div>
                   <p className="text-zinc-600 dark:text-zinc-400">
                     {job.start} - {job.end}
@@ -185,10 +167,7 @@ export default function Personal() {
       </motion.section>
 
       {/* projects */}
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
+      <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
         <h3 className="mb-5 text-lg font-medium">Projects & Contributions</h3>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {PROJECTS.map((project, index) => (
@@ -205,9 +184,7 @@ export default function Personal() {
                   {project.name}
                   <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 transition-all duration-200 group-hover:max-w-full"></span>
                 </a>
-                <p className="text-base text-zinc-600 dark:text-zinc-400">
-                  {project.description}
-                </p>
+                <p className="text-base text-zinc-600 dark:text-zinc-400">{project.description}</p>
               </div>
             </div>
           ))}
@@ -215,78 +192,34 @@ export default function Personal() {
       </motion.section>
 
       {/* skills & interests */}
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
+      <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
         <h3 className="mb-5 text-lg font-medium">Skills & Interests</h3>
         <div className="mt-10 flex flex-col space-y-2">
           <ul className="flex list-inside list-disc flex-col space-y-2 font-mono">
             <li className="text-zinc-600 dark:text-zinc-400">
-              <span className="font-medium underline">Languages:</span>{' '}
-              {SKILLS.languages.join(', ')}
+              <span className="font-medium underline">Languages:</span>{" "}
+              {SKILLS.languages.join(", ")}
             </li>
             <li className="text-zinc-600 dark:text-zinc-400">
-              <span className="font-medium underline">Tech Stack:</span>{' '}
-              {SKILLS.tech_stack.join(', ')}
+              <span className="font-medium underline">Tech Stack:</span>{" "}
+              {SKILLS.tech_stack.join(", ")}
             </li>
             <li className="text-zinc-600 dark:text-zinc-400">
-              <span className="font-medium underline">Tools:</span>{' '}
-              {SKILLS.tools.join(', ')}
+              <span className="font-medium underline">Tools:</span> {SKILLS.tools.join(", ")}
             </li>
             <li className="text-zinc-600 dark:text-zinc-400">
-              <span className="font-medium underline">Interests:</span>{' '}
-              {SKILLS.interests.join(', ')}
+              <span className="font-medium underline">Interests:</span>{" "}
+              {SKILLS.interests.join(", ")}
             </li>
           </ul>
         </div>
       </motion.section>
 
-      {/* blog */}
-      {/* <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
-        <h3 className="mb-3 text-lg font-medium">Blog</h3>
-        <div className="flex flex-col space-y-0">
-          <AnimatedBackground
-            enableHover
-            className="h-full w-full rounded-lg bg-zinc-100 dark:bg-zinc-900/80"
-            transition={{
-              type: 'spring',
-              bounce: 0,
-              duration: 0.2,
-            }}
-          >
-            {BLOG_POSTS.map((post) => (
-              <Link
-                key={post.uid}
-                className="-mx-3 rounded-xl px-3 py-3"
-                href={post.link}
-                data-id={post.uid}
-              >
-                <div className="flex flex-col space-y-1">
-                  <h4 className="font-normal dark:text-zinc-100">
-                    {post.title}
-                  </h4>
-                  <p className="text-zinc-500 dark:text-zinc-400">
-                    {post.description}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </AnimatedBackground>
-        </div>
-      </motion.section> */}
-
       {/* connect */}
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
+      <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
         <h3 className="mb-5 text-lg font-medium">Connect</h3>
         <p className="mb-5 text-zinc-600 dark:text-zinc-400">
-          Feel free to contact me at{' '}
+          Feel free to contact me at{" "}
           <a className="underline dark:text-zinc-300" href={`mailto:${EMAIL}`}>
             {EMAIL}
           </a>
@@ -300,5 +233,5 @@ export default function Personal() {
         </div>
       </motion.section>
     </motion.main>
-  )
+  );
 }
