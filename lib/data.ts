@@ -100,7 +100,7 @@ export const PROJECTS: Project[] = [
     description:
       "A simple demonstration of r3f (React Three Fiber) and feature LEGO physics with the cursor.",
     link: "#",
-    image: "lego3d-rf.jpg",
+    image: "lego3d.jpg",
   },
   {
     name: "InvestDoor",
