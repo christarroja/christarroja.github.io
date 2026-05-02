@@ -21,6 +21,7 @@ import {
   HEADER_INFO,
   SKILLS,
 } from "@/lib/data";
+import Image from "next/image";
 
 export const VARIANTS_CONTAINER = {
   hidden: { opacity: 0 },
@@ -138,13 +139,13 @@ export default function Personal() {
       <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
         <h3 className="mb-5 text-lg font-medium">Work Experience</h3>
         <div className="flex flex-col space-y-2">
-          {WORK_EXPERIENCE.map((job) => (
+          {WORK_EXPERIENCE.map((job, index) => (
             <a
               className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
               href={job.link}
               target="_blank"
               rel="noopener noreferrer"
-              key={job.id}
+              key={index}
             >
               <Spotlight
                 className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
@@ -173,7 +174,16 @@ export default function Personal() {
           {PROJECTS.map((project, index) => (
             <div key={index} className="space-y-2">
               <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
-                <ProjectVideo src={project.video} />
+                {project.video && <ProjectVideo src={project.video} />}
+                {project.image && (
+                  <Image
+                    src={project.image}
+                    alt={project.name}
+                    className="aspect-video object-cover"
+                    width={400}
+                    height={225}
+                  />
+                )}
               </div>
               <div className="px-1">
                 <a
@@ -201,8 +211,19 @@ export default function Personal() {
               {SKILLS.languages.join(", ")}
             </li>
             <li className="text-zinc-600 dark:text-zinc-400">
-              <span className="font-medium underline">Tech Stack:</span>{" "}
-              {SKILLS.tech_stack.join(", ")}
+              <span className="font-medium underline">Frameworks:</span>{" "}
+              {SKILLS.frameworks.join(", ")}
+            </li>
+            <li className="text-zinc-600 dark:text-zinc-400">
+              <span className="font-medium underline">Styling:</span> {SKILLS.styling.join(", ")}
+            </li>
+            <li className="text-zinc-600 dark:text-zinc-400">
+              <span className="font-medium underline">State Management:</span>{" "}
+              {SKILLS.state_mgmt.join(", ")}
+            </li>
+            <li className="text-zinc-600 dark:text-zinc-400">
+              <span className="font-medium underline">Libraries:</span>{" "}
+              {SKILLS.libraries.join(", ")}
             </li>
             <li className="text-zinc-600 dark:text-zinc-400">
               <span className="font-medium underline">Tools:</span> {SKILLS.tools.join(", ")}
@@ -219,9 +240,9 @@ export default function Personal() {
       <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
         <h3 className="mb-5 text-lg font-medium">Connect</h3>
         <p className="mb-5 text-zinc-600 dark:text-zinc-400">
-          Feel free to contact me at{" "}
+          Feel free to connect via&nbsp;
           <a className="underline dark:text-zinc-300" href={`mailto:${EMAIL}`}>
-            {EMAIL}
+            email
           </a>
         </p>
         <div className="flex items-center justify-start space-x-3">

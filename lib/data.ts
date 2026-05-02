@@ -6,7 +6,10 @@ type HeaderInfo = {
 
 type Skills = {
   languages: string[];
-  tech_stack: string[];
+  frameworks: string[];
+  styling: string[];
+  state_mgmt: string[];
+  libraries: string[];
   tools: string[];
   interests: string[];
 };
@@ -14,8 +17,8 @@ type Project = {
   name: string;
   description: string;
   link: string;
-  video: string;
-  id: string;
+  video?: string;
+  image?: string;
 };
 
 type WorkExperience = {
@@ -24,7 +27,6 @@ type WorkExperience = {
   start: string;
   end: string;
   link: string;
-  id: string;
 };
 
 type BlogPost = {
@@ -43,33 +45,26 @@ export const HEADER_INFO: HeaderInfo = {
   name: "Christopher Tarroja",
   title: "Front End Developer",
   description:
-    "3+ years of web development experience building responsive, production-ready interfaces using React and TypeScript. Worked on live dApps, CMS-based sites, and gaming launch sites. Focused on creating intuitive and performant web experiences. Bridging the gap between design and development. Based in Quezon City, Philippines.",
+    "Web developer with 4 years of crafting tailored, performant web experiences — where clean code meets intentional design. Focused on accessibility, storytelling, and closing the gap between design and engineering. Experienced collaborating cross-functionally with UI/UX designers, PMs, Backend Developers, DevOps, and QA teams. Based in Quezon City, Philippines.",
 };
 
 export const SKILLS: Skills = {
-  languages: ["Javascript", "TypeScript", "HTML", "PHP"],
-  tech_stack: [
-    "React",
-    "React Native (Expo)",
-    "NextJS",
-    "Tailwind CSS",
+  languages: ["TypeScript", "JavaScript", "HTML"],
+  frameworks: ["React", "Next.js", "React Native (Expo)"],
+  styling: ["Tailwind CSS, CSS Modules"],
+  state_mgmt: ["Zustand", "TanStack React Query (server-state)", "Redux (RTK)"],
+  libraries: [
+    "shadcn/ui",
+    "Radix UI",
+    "Framer Motion",
+    "React Hook Form",
+    "Zod",
+    "nuqs",
+    "Vitest",
+    "Playwright",
     "Three.js",
-    "Tanstack React Query",
-    "Redux (RTK)",
-    "Zustand",
   ],
-  tools: [
-    "Git",
-    "Figma",
-    "Postman",
-    "Docker",
-    "Jira",
-    "MongoDB",
-    "GraphQL",
-    "Adobe Creative Suite",
-    "WordPress",
-    "WooCommerce",
-  ],
+  tools: ["Git", "Figma", "Docker", "Postman", "Claude and other AI tools"],
   interests: [
     "Instrumental Music",
     "Games (Action RPGs, Rogue-like)",
@@ -80,12 +75,11 @@ export const SKILLS: Skills = {
 
 export const PROJECTS: Project[] = [
   {
-    name: "InvestDoor",
+    name: "GIG Rewards",
     description:
-      "A dynamic resource that empowers Australian real estate brokers with the tools, insights, and expertise they need to thrive in the competitive property investment landscape",
-    link: "https://investdoor.com.au/",
-    video: "https://res.cloudinary.com/da5gpqjxd/video/upload/v1746514130/investdoor_wxpjvs.mp4",
-    id: "project1",
+      "A token-based app built around React Native (Expo), with 50,000+ active users for mobile rewards and Web3 quests",
+    link: "https://gigrewards.ph/",
+    video: "https://res.cloudinary.com/da5gpqjxd/video/upload/v1746514129/gigrewards_l7ivnq.mp4",
   },
   {
     name: "CreatorVerse",
@@ -93,23 +87,27 @@ export const PROJECTS: Project[] = [
       "Delivered Creatorverse leaderboard and compendium, supporting over 13,000 Alpha playtest signups",
     link: "https://creatorverse.gg/",
     video: "https://res.cloudinary.com/da5gpqjxd/video/upload/v1746514130/creatorverse_xio4zp.mp4",
-    id: "project2",
   },
   {
-    name: "Ray A. Gapuz Review System",
+    name: "Ask Gemini About Image",
     description:
-      "A fully built and styled ReactJS site focused on promoting and delivering review program requirements for exams like NCLEX, NLE, LET, IELTS, and more",
-    link: "https://www.raygapuzreviewsystem.com/",
-    video: "https://res.cloudinary.com/da5gpqjxd/video/upload/v1746522071/gapuzreview_qt7vxb.mp4",
-    id: "project3",
+      "Ask a natural-language question about an image, rendering the Think → Act → Observe timeline via Gemini's Agentic Vision",
+    link: "#",
+    image: "./gemini-vision.jpg",
   },
   {
-    name: "Pokedex",
+    name: "Lego 3D Playground",
     description:
-      "Explore and search for Pokémon by type. Achieved an impressive score of 95-100 on the Lighthouse web page test. ReactJS, GraphQL, Apollo",
-    link: "https://pokedex-graphql-two.vercel.app/",
-    video: "https://res.cloudinary.com/da5gpqjxd/video/upload/v1746517637/pokedex_hqjpmo.mp4",
-    id: "project4",
+      "A simple demonstration of r3f (React Three Fiber) and feature LEGO physics with the cursor.",
+    link: "#",
+    image: "lego3d-rf.jpg",
+  },
+  {
+    name: "InvestDoor",
+    description:
+      "A dynamic resource that empowers Australian real estate brokers with the tools, insights, and expertise they need to thrive in the competitive property investment landscape",
+    link: "https://investdoor.com.au/",
+    video: "https://res.cloudinary.com/da5gpqjxd/video/upload/v1746514130/investdoor_wxpjvs.mp4",
   },
   {
     name: "Best Season Agri-venture",
@@ -118,26 +116,37 @@ export const PROJECTS: Project[] = [
     link: "https://bestseasonagri.com/",
     video:
       "https://res.cloudinary.com/da5gpqjxd/video/upload/v1746516328/bestseasonagri_hy1se0.mp4",
-    id: "project5",
   },
   {
-    name: "GIG Rewards",
+    name: "Pokedex",
     description:
-      "A token-based app built around React Native (Expo), with 50,000+ active users for mobile rewards and Web3 quests",
-    link: "https://gigrewards.ph/",
-    video: "https://res.cloudinary.com/da5gpqjxd/video/upload/v1746514129/gigrewards_l7ivnq.mp4",
-    id: "project6",
+      "Explore and search for Pokémon by type. Achieved an impressive score of 95-100 on the Lighthouse web page test. ReactJS, GraphQL, Apollo",
+    link: "https://pokedex-graphql-two.vercel.app/",
+    video: "https://res.cloudinary.com/da5gpqjxd/video/upload/v1746517637/pokedex_hqjpmo.mp4",
+  },
+  {
+    name: "Ray A. Gapuz Review System",
+    description:
+      "A fully built and styled ReactJS site focused on promoting and delivering review program requirements for exams like NCLEX, NLE, LET, IELTS, and more",
+    link: "https://www.raygapuzreviewsystem.com/",
+    video: "https://res.cloudinary.com/da5gpqjxd/video/upload/v1746522071/gapuzreview_qt7vxb.mp4",
   },
 ];
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
+    company: "WINAS Technologies Inc. (Philippines)",
+    title: "Frontend Engineer (React)",
+    start: "Feb 2026",
+    end: "Present",
+    link: "https://www.winas.jp/",
+  },
+  {
     company: "Sovrun (formerly BreederDAO)",
     title: "Front End Developer",
     start: "Dec 2023",
-    end: "Present",
+    end: "Feb 2026",
     link: "https://sovrun.org",
-    id: "work1",
   },
   {
     company: "Getaka Labs",
@@ -145,7 +154,6 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     start: "Mar 2022",
     end: "Jan 2024",
     link: "https://getakalabs.com",
-    id: "work2",
   },
   {
     company: "Capitol City Baptist Church",
@@ -153,7 +161,6 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     start: "Nov 2014",
     end: "Mar 2022",
     link: "https://ccbc.ph",
-    id: "work3",
   },
   {
     company: "Freelance",
@@ -161,7 +168,6 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     start: "2019",
     end: "Present",
     link: "https://christarroja.github.io",
-    id: "work4",
   },
 ];
 
