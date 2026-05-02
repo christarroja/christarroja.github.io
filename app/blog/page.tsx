@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import Link from "next/link";
 import { AnimatedBackground } from "@/components/ui/animated-background";
-import { TRANSITION_SECTION, VARIANTS_CONTAINER, VARIANTS_SECTION } from "../page";
+import { TRANSITION_SECTION, VARIANTS_CONTAINER, VARIANTS_SECTION } from "@/lib/animations";
 import { BLOG_POSTS } from "@/lib/data";
 
 export default function Blog() {
