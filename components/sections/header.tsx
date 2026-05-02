@@ -1,7 +1,8 @@
-'use client'
-import { TextEffect } from '@/components/ui/text-effect'
-import Link from 'next/link'
-import { HEADER_INFO } from '@/lib/data'
+"use client";
+
+import { TextEffect } from "@/components/ui/text-effect";
+import Link from "next/link";
+import { HEADER_INFO } from "@/lib/data";
 
 export function Header() {
   return (
@@ -24,5 +25,5 @@ export function Header() {
         </TextEffect>
       </div>
     </header>
-  )
+  );
 }

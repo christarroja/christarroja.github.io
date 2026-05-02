@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @plugin '@tailwindcss/typography';
 @custom-variant dark (&:is(.dark *));
 
@@ -25,6 +25,6 @@
     border-color: var(--color-gray-200, currentColor);
   }
   body {
-    @apply bg-black text-white font-sans;
+    @apply bg-black font-sans text-white;
   }
 }
